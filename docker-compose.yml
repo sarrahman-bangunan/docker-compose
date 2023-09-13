@@ -15,8 +15,6 @@ services:
       - webstore-service
       - auth-service
       - ai-service
-    volumes:
-      - ./api-gateway/nginx.conf:/etc/nginx/nginx.conf
     networks:
       - sarrahman-bangunan-network
 
