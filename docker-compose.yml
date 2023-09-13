@@ -24,7 +24,7 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - MONGO_URI=mongodb://18.139.83.11/product-service
+      - MONGO_URI=mongodb://54.169.99.237/product-service
 
   users-management-service:
     image: sarrahmanme/users-management-service:0.0.1
@@ -32,7 +32,7 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=18.139.83.11
+      - DB_HOST=54.169.99.237
       - DB_NAME=sarrahman-bangunan
 
   suplier-service:
@@ -41,7 +41,7 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=18.139.83.11
+      - DB_HOST=54.169.99.237
       - DB_NAME=sarrahman-bangunan
 
   mitra-service:
@@ -50,7 +50,7 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=18.139.83.11
+      - DB_HOST=54.169.99.237
       - DB_NAME=sarrahman-bangunan
 
   finance-service:
@@ -59,7 +59,7 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=18.139.83.11
+      - DB_HOST=54.169.99.237
       - DB_NAME=sarrahman-bangunan
 
   membership-service:
@@ -68,7 +68,7 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=18.139.83.11
+      - DB_HOST=54.169.99.237
       - DB_NAME=sarrahman-bangunan
       - MITRA_API_SERVICE=http://mitra-service:5006
       - FINANCE_API_SERVICE=http://finance-service:5007
@@ -79,7 +79,7 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=18.139.83.11
+      - DB_HOST=54.169.99.237
       - DB_NAME=sarrahman-bangunan
       - MITRA_API_SERVICE=http://mitra-service:5006
 
