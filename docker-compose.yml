@@ -1,11 +1,9 @@
 version: "3"
 services:
   api-gateway:
-    build:
-      context: ./api-gateway
-      dockerfile: Dockerfile
+    image: sarrahmanme/api-gateway:0.0.1
     ports:
-      - "5000:80"
+      - "80:80"
     container_name: api-gateway
     depends_on:
       - products-service
@@ -23,102 +21,72 @@ services:
       - sarrahman-bangunan-network
 
   products-service:
-    build:
-      context: ./products-service
-      dockerfile: Dockerfile
+    image: sarrahmanme/products-service:0.0.1
     container_name: products-service
-    depends_on:
-      - mongodb
     networks:
       - sarrahman-bangunan-network
     environment:
-      - MONGO_URI=mongodb://mongodb/product-service
+      - MONGO_URI=mongodb://18.139.83.11/product-service
 
   users-management-service:
-    build:
-      context: ./users-management-service
-      dockerfile: Dockerfile
+    image: sarrahmanme/users-management-service:0.0.1
     container_name: users-management-service
-    depends_on:
-      - postgres
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=postgres
+      - DB_HOST=18.139.83.11
       - DB_NAME=sarrahman-bangunan
 
   suplier-service:
-    build:
-      context: ./suplier-service
-      dockerfile: Dockerfile
+    image: sarrahmanme/suplier-service:0.0.1
     container_name: suplier-service
-    depends_on:
-      - postgres
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=postgres
+      - DB_HOST=18.139.83.11
       - DB_NAME=sarrahman-bangunan
 
   mitra-service:
-    build:
-      context: ./mitra-service
-      dockerfile: Dockerfile
+    image: sarrahmanme/mitra-service:0.0.1
     container_name: mitra-service
-    depends_on:
-      - postgres
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=postgres
+      - DB_HOST=18.139.83.11
       - DB_NAME=sarrahman-bangunan
 
   finance-service:
-    build:
-      context: ./finance-service
-      dockerfile: Dockerfile
+    image: sarrahmanme/finance-service:0.0.1
     container_name: finance-service
-    depends_on:
-      - postgres
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=postgres
+      - DB_HOST=18.139.83.11
       - DB_NAME=sarrahman-bangunan
 
   membership-service:
-    build:
-      context: ./membership-service
-      dockerfile: Dockerfile
+    image: sarrahmanme/membership-service:0.0.1
     container_name: membership-service
-    depends_on:
-      - postgres
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=postgres
+      - DB_HOST=18.139.83.11
       - DB_NAME=sarrahman-bangunan
       - MITRA_API_SERVICE=http://mitra-service:5006
       - FINANCE_API_SERVICE=http://finance-service:5007
 
   webstore-service:
-    build:
-      context: ./webstore-service
-      dockerfile: Dockerfile
+    image: sarrahmanme/webstore-service:0.0.1
     container_name: webstore-service
-    depends_on:
-      - postgres
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=postgres
+      - DB_HOST=18.139.83.11
       - DB_NAME=sarrahman-bangunan
       - MITRA_API_SERVICE=http://mitra-service:5006
 
   auth-service:
-    build:
-      context: ./auth-service
-      dockerfile: Dockerfile
+    image: sarrahmanme/auth-service:0.0.1
     container_name: auth-service
     networks:
       - sarrahman-bangunan-network
@@ -127,38 +95,8 @@ services:
       - MITRA_SERVICE=http://mitra-service:5006
 
   ai-service:
-    build:
-      context: ./ai-service
-      dockerfile: Dockerfile
+    image: sarrahmanme/ai-service:0.0.1
     container_name: ai-service
-    networks:
-      - sarrahman-bangunan-network
-
-  postgres:
-    image: postgres
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=@124HM4n190919
-      - POSTGRES_DB=sarrahman-bangunan
-    container_name: postgres
-    volumes:
-      - ./postgres/backup:/pg-backup
-      - ./postgres/data:/var/lib/postgresql/data
-    networks:
-      - sarrahman-bangunan-network
-
-  mongodb:
-    image: mongo
-    ports:
-      - "27017:27017"
-    environment:
-      - MONGO_INITDB_DATABASE=product-service
-    container_name: mongodb
-    volumes:
-      - ./mongo/data:/data/db
-      - ./mongo/backup:/mongo-backup
     networks:
       - sarrahman-bangunan-network
 
