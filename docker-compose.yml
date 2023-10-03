@@ -13,7 +13,7 @@ services:
       - finance-service
       - membership-service
       - webstore-service
-      - auth-servic
+      - auth-service
       - message-service
       - ai-service
     networks:
