@@ -20,7 +20,7 @@ services:
       - sarrahman-bangunan-network
 
   products-service:
-    image: sarrahmanme/products-service:0.0.2
+    image: sarrahmanme/products-service:0.0.3
     container_name: products-service
     networks:
       - sarrahman-bangunan-network
@@ -38,7 +38,7 @@ services:
       - DB_NAME=sarrahman-bangunan
 
   suplier-service:
-    image: sarrahmanme/suplier-service:0.0.2
+    image: sarrahmanme/suplier-service:0.0.3
     container_name: suplier-service
     depends_on:
       - postgres
@@ -49,7 +49,7 @@ services:
       - DB_NAME=sarrahman-bangunan
 
   mitra-service:
-    image: sarrahmanme/mitra-service:0.0.2
+    image: sarrahmanme/mitra-service:0.0.3
     container_name: mitra-service
     depends_on:
       - postgres
@@ -61,7 +61,7 @@ services:
       - DB_NAME=sarrahman-bangunan
 
   finance-service:
-    image: sarrahmanme/finance-service:0.0.2
+    image: sarrahmanme/finance-service:0.0.3
     container_name: finance-service
     depends_on:
       - postgres
@@ -72,7 +72,7 @@ services:
       - DB_NAME=sarrahman-bangunan
 
   membership-service:
-    image: sarrahmanme/membership-service:0.0.2
+    image: sarrahmanme/membership-service:0.0.3
     container_name: membership-service
     depends_on:
       - postgres
@@ -86,7 +86,7 @@ services:
       - FINANCE_API_SERVICE=http://finance-service:5007
 
   webstore-service:
-    image: sarrahmanme/webstore-service:0.0.2
+    image: sarrahmanme/webstore-service:0.0.3
     container_name: webstore-service
     depends_on:
       - postgres
