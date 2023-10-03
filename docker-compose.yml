@@ -26,7 +26,7 @@ services:
       - sarrahman-bangunan-network
 
   users-management-service:
-    image: sarrahmanme/users-management-service:0.0.2
+    image: sarrahmanme/users-management-service:0.0.3
     container_name: users-management-service
     depends_on:
       - postgres
@@ -98,7 +98,7 @@ services:
       - MITRA_API_SERVICE=http://mitra-service:5006
 
   auth-service:
-    image: sarrahmanme/auth-service:0.0.2
+    image: sarrahmanme/auth-service:0.0.3
     container_name: auth-service
     networks:
       - sarrahman-bangunan-network
