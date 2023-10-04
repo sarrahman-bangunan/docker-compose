@@ -20,7 +20,7 @@ services:
       - sarrahman-bangunan-network
 
   products-service:
-    image: sarrahmanme/products-service:0.0.4
+    image: sarrahmanme/products-service:0.0.5
     container_name: products-service
     networks:
       - sarrahman-bangunan-network
@@ -28,7 +28,7 @@ services:
       - MONGO_URI=mongodb+srv://sarrahmanme:124HM4n190919@cluster0.jujuafr.mongodb.net/?retryWrites=true&w=majority
 
   users-management-service:
-    image: sarrahmanme/users-management-service:0.0.4
+    image: sarrahmanme/users-management-service:0.0.5
     container_name: users-management-service
     depends_on:
       - rabbitmq
@@ -39,7 +39,7 @@ services:
       - DB_NAME=sarrahman-bangunan
 
   suplier-service:
-    image: sarrahmanme/suplier-service:0.0.4
+    image: sarrahmanme/suplier-service:0.0.5
     container_name: suplier-service
     networks:
       - sarrahman-bangunan-network
@@ -48,7 +48,7 @@ services:
       - DB_NAME=sarrahman-bangunan
 
   mitra-service:
-    image: sarrahmanme/mitra-service:0.0.4
+    image: sarrahmanme/mitra-service:0.0.5
     container_name: mitra-service
     depends_on:
       - rabbitmq
@@ -59,7 +59,7 @@ services:
       - DB_NAME=sarrahman-bangunan
 
   finance-service:
-    image: sarrahmanme/finance-service:0.0.4
+    image: sarrahmanme/finance-service:0.0.5
     container_name: finance-service
     networks:
       - sarrahman-bangunan-network
@@ -68,7 +68,7 @@ services:
       - DB_NAME=sarrahman-bangunan
 
   membership-service:
-    image: sarrahmanme/membership-service:0.0.4
+    image: sarrahmanme/membership-service:0.0.5
     container_name: membership-service
     depends_on:
       - rabbitmq
@@ -81,7 +81,7 @@ services:
       - FINANCE_API_SERVICE=http://finance-service:5007
 
   webstore-service:
-    image: sarrahmanme/webstore-service:0.0.4
+    image: sarrahmanme/webstore-service:0.0.5
     container_name: webstore-service
     networks:
       - sarrahman-bangunan-network
@@ -91,7 +91,7 @@ services:
       - MITRA_API_SERVICE=http://mitra-service:5006
 
   auth-service:
-    image: sarrahmanme/auth-service:0.0.8
+    image: sarrahmanme/auth-service:0.0.9
     container_name: auth-service
     networks:
       - sarrahman-bangunan-network
@@ -102,7 +102,7 @@ services:
       - MITRA_SERVICE=http://mitra-service:5006
 
   ai-service:
-    image: sarrahmanme/ai-service:0.0.2
+    image: sarrahmanme/ai-service:0.0.3
     container_name: ai-service
     networks:
       - sarrahman-bangunan-network
