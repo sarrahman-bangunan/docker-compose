@@ -24,6 +24,8 @@ services:
     container_name: products-service
     networks:
       - sarrahman-bangunan-network
+    environment:
+      - MONGO_URI=mongodb+srv://sarrahmanme:124HM4n190919@cluster0.jujuafr.mongodb.net/?retryWrites=true&w=majority
 
   users-management-service:
     image: sarrahmanme/users-management-service:0.0.4
