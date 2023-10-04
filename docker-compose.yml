@@ -29,58 +29,51 @@ services:
     image: sarrahmanme/users-management-service:0.0.4
     container_name: users-management-service
     depends_on:
-      - postgres
       - rabbitmq
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=postgres
+      - DB_HOST=3.1.204.153
       - DB_NAME=sarrahman-bangunan
 
   suplier-service:
     image: sarrahmanme/suplier-service:0.0.4
     container_name: suplier-service
-    depends_on:
-      - postgres
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=postgres
+      - DB_HOST=3.1.204.153
       - DB_NAME=sarrahman-bangunan
 
   mitra-service:
     image: sarrahmanme/mitra-service:0.0.4
     container_name: mitra-service
     depends_on:
-      - postgres
       - rabbitmq
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=postgres
+      - DB_HOST=3.1.204.153
       - DB_NAME=sarrahman-bangunan
 
   finance-service:
     image: sarrahmanme/finance-service:0.0.4
     container_name: finance-service
-    depends_on:
-      - postgres
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=postgres
+      - DB_HOST=3.1.204.153
       - DB_NAME=sarrahman-bangunan
 
   membership-service:
     image: sarrahmanme/membership-service:0.0.4
     container_name: membership-service
     depends_on:
-      - postgres
       - rabbitmq
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=postgres
+      - DB_HOST=3.1.204.153
       - DB_NAME=sarrahman-bangunan
       - MITRA_API_SERVICE=http://mitra-service:5006
       - FINANCE_API_SERVICE=http://finance-service:5007
@@ -88,12 +81,10 @@ services:
   webstore-service:
     image: sarrahmanme/webstore-service:0.0.4
     container_name: webstore-service
-    depends_on:
-      - postgres
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=postgres
+      - DB_HOST=3.1.204.153
       - DB_NAME=sarrahman-bangunan
       - MITRA_API_SERVICE=http://mitra-service:5006
 
@@ -132,32 +123,6 @@ services:
     environment:
       - RABBITMQ_DEFAULT_USER=sarrahman
       - RABBITMQ_DEFAULT_PASS=@124HM4n190919
-  postgres:
-    image: postgres
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=@124HM4n190919
-      - POSTGRES_DB=sarrahman-bangunan
-    container_name: postgres
-    volumes:
-      - ./postgres/backup:/pg-backup
-      - ./postgres/data:/var/lib/postgresql/data
-    networks:
-      - sarrahman-bangunan-network
-  # mongodb:
-  #   image: mongo
-  #   ports:
-  #     - "27017:27017"
-  #   environment:
-  #     - MONGO_INITDB_DATABASE=product-service
-  #   container_name: mongodb
-  #   volumes:
-  #     - ./mongo/data:/data/db
-  #     - ./mongo/backup:/mongo-backup
-  #   networks:
-  #     - sarrahman-bangunan-network
 
 networks:
   sarrahman-bangunan-network:
