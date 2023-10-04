@@ -102,7 +102,7 @@ services:
       - MITRA_SERVICE=http://mitra-service:5006
 
   ai-service:
-    image: sarrahmanme/ai-service:0.0.1
+    image: sarrahmanme/ai-service:0.0.2
     container_name: ai-service
     networks:
       - sarrahman-bangunan-network
