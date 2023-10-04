@@ -91,7 +91,7 @@ services:
       - MITRA_API_SERVICE=http://mitra-service:5006
 
   auth-service:
-    image: sarrahmanme/auth-service:0.0.9
+    image: sarrahmanme/auth-service:0.0.10
     container_name: auth-service
     networks:
       - sarrahman-bangunan-network
