@@ -108,6 +108,7 @@ services:
     container_name: ai-service
     networks:
       - sarrahman-bangunan-network
+    environment:
       - ALLOWED_DOMAINS=http://localhost:3001,http://localhost:3000,http://localhost:3002,https://testing-webstore.netlify.app,https://admin.tokokeramik.com,https://www.tokokeramik.com,https://tokokeramik.com
 
   message-service:
