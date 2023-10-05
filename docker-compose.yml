@@ -104,13 +104,11 @@ services:
       - MITRA_SERVICE=http://mitra-service:5006
 
   ai-service:
-    image: sarrahmanme/ai-service:0.0.6
+    image: sarrahmanme/ai-service:0.0.5
     container_name: ai-service
     networks:
       - sarrahman-bangunan-network
-    environment:
-      - ALLOWED_DOMAINS=http://localhost:3001,http://localhost:3000,http://localhost:3002,https://testing-webstore.netlify.app,https://admin.tokokeramik.com,https://www.tokokeramik.com,https://tokokeramik.com
-
+    
   message-service:
     image: sarrahmanme/message-service:0.0.1
     container_name: message-service
