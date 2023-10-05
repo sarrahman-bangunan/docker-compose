@@ -82,7 +82,7 @@ services:
       - FINANCE_API_SERVICE=http://finance-service:5007
 
   webstore-service:
-    image: sarrahmanme/webstore-service:0.0.5
+    image: sarrahmanme/webstore-service:0.0.6
     container_name: webstore-service
     networks:
       - sarrahman-bangunan-network
@@ -90,6 +90,7 @@ services:
       - DB_HOST=3.1.204.153
       - DB_NAME=sarrahman-bangunan
       - MITRA_API_SERVICE=http://mitra-service:5006
+      - ALLOWED_DOMAINS=http://localhost:3001,http://localhost:3000,http://localhost:3002,https://testing-webstore.netlify.app,https://admin.tokokeramik.com,https://www.tokokeramik.com,https://tokokeramik.com
 
   auth-service:
     image: sarrahmanme/auth-service:0.0.11
@@ -103,10 +104,11 @@ services:
       - MITRA_SERVICE=http://mitra-service:5006
 
   ai-service:
-    image: sarrahmanme/ai-service:0.0.5
+    image: sarrahmanme/ai-service:0.0.6
     container_name: ai-service
     networks:
       - sarrahman-bangunan-network
+      - ALLOWED_DOMAINS=http://localhost:3001,http://localhost:3000,http://localhost:3002,https://testing-webstore.netlify.app,https://admin.tokokeramik.com,https://www.tokokeramik.com,https://tokokeramik.com
 
   message-service:
     image: sarrahmanme/message-service:0.0.1
