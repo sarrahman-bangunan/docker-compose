@@ -26,6 +26,7 @@ services:
       - sarrahman-bangunan-network
     environment:
       - MONGO_URI=mongodb+srv://sarrahmanme:124HM4n190919@cluster0.jujuafr.mongodb.net/?retryWrites=true&w=majority
+      - ALLOWED_DOMAINS=http://localhost:3001,http://localhost:3000,http://localhost:3002,https://testing-webstore.netlify.app,https://admin.tokokeramik.com,https://www.tokokeramik.com,https://tokokeramik.com
 
   users-management-service:
     image: sarrahmanme/users-management-service:0.0.5
