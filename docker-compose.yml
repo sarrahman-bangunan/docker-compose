@@ -20,7 +20,7 @@ services:
       - sarrahman-bangunan-network
 
   products-service:
-    image: sarrahmanme/products-service:0.0.6
+    image: sarrahmanme/products-service:0.0.5
     container_name: products-service
     networks:
       - sarrahman-bangunan-network
