@@ -27,7 +27,7 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=3.1.204.153
+      - DB_HOST=54.151.254.38
       - DB_NAME=sarrahman-bangunan
       - REDIS_HOST=redis
 
@@ -51,7 +51,7 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=3.1.204.153
+      - DB_HOST=54.151.254.38
       - DB_NAME=sarrahman-bangunan
 
   suplier-service:
@@ -60,7 +60,7 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=3.1.204.153
+      - DB_HOST=54.151.254.38
       - DB_NAME=sarrahman-bangunan
 
   mitra-service:
@@ -71,7 +71,7 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=3.1.204.153
+      - DB_HOST=54.151.254.38
       - DB_NAME=sarrahman-bangunan
 
   finance-service:
@@ -80,7 +80,7 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=3.1.204.153
+      - DB_HOST=54.151.254.38
       - DB_NAME=sarrahman-bangunan
 
   membership-service:
@@ -91,7 +91,7 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=3.1.204.153
+      - DB_HOST=54.151.254.38
       - DB_NAME=sarrahman-bangunan
       - MITRA_API_SERVICE=http://mitra-service:5006
       - FINANCE_API_SERVICE=http://finance-service:5007
@@ -105,7 +105,7 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=3.1.204.153
+      - DB_HOST=54.151.254.38
       - DB_NAME=sarrahman-bangunan
       - MITRA_API_SERVICE=http://mitra-service:5006
       - REDIS_HOST=redis
