@@ -97,16 +97,19 @@ services:
       - FINANCE_API_SERVICE=http://finance-service:5007
 
   webstore-service:
-    image: sarrahmanme/webstore-service:0.0.6
+    image: sarrahmanme/webstore-service:0.0.7
     container_name: webstore-service
+    depends_on:
+      - configuration-service
+      - redis
     networks:
       - sarrahman-bangunan-network
     environment:
       - DB_HOST=3.1.204.153
       - DB_NAME=sarrahman-bangunan
       - MITRA_API_SERVICE=http://mitra-service:5006
-      - ALLOWED_DOMAINS=http://localhost:3001,http://localhost:3000,http://localhost:3002,https://testing-webstore.netlify.app,https://admin.tokokeramik.com,https://www.tokokeramik.com,https://tokokeramik.com
-
+      - REDIS_HOST=redis
+      
   auth-service:
     image: sarrahmanme/auth-service:0.0.11
     container_name: auth-service
