@@ -19,14 +19,29 @@ services:
     networks:
       - sarrahman-bangunan-network
 
+  configuration-service:
+    image: sarrahmanme/configuration-service:0.0.1
+    container_name: configuration-service
+    depends_on:
+      - redis
+    networks:
+      - sarrahman-bangunan-network
+    environment:
+      - DB_HOST=3.1.204.153
+      - DB_NAME=sarrahman-bangunan
+      - REDIS_HOST=redis
+
   products-service:
-    image: sarrahmanme/products-service:0.0.7
+    image: sarrahmanme/products-service:0.0.8
     container_name: products-service
+    depends_on:
+      - configuration-service
+      - redis
     networks:
       - sarrahman-bangunan-network
     environment:
       - MONGO_URI=mongodb+srv://sarrahmanme:124HM4n190919@cluster0.jujuafr.mongodb.net/?retryWrites=true&w=majority
-      - ALLOWED_DOMAINS=http://localhost:3001,http://localhost:3000,http://localhost:3002,https://testing-webstore.netlify.app,https://admin.tokokeramik.com,https://www.tokokeramik.com,https://tokokeramik.com
+      - REDIS_HOST=redis
 
   users-management-service:
     image: sarrahmanme/users-management-service:0.0.5
@@ -108,12 +123,20 @@ services:
     container_name: ai-service
     networks:
       - sarrahman-bangunan-network
-    
+
   message-service:
     image: sarrahmanme/message-service:0.0.1
     container_name: message-service
     depends_on:
       - rabbitmq
+    networks:
+      - sarrahman-bangunan-network
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    container_name: redis
     networks:
       - sarrahman-bangunan-network
 
