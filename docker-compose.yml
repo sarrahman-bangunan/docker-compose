@@ -41,7 +41,7 @@ services:
       - REDIS_HOST=18.141.187.17
 
   users-management-service:
-    image: sarrahmanme/users-management-service:0.0.5
+    image: sarrahmanme/users-management-service:0.0.6
     container_name: users-management-service
     depends_on:
       - rabbitmq
@@ -50,18 +50,20 @@ services:
     environment:
       - DB_HOST=18.141.187.17
       - DB_NAME=sarrahman-bangunan
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.141.187.17
 
   suplier-service:
-    image: sarrahmanme/suplier-service:0.0.5
+    image: sarrahmanme/suplier-service:0.0.6
     container_name: suplier-service
     networks:
       - sarrahman-bangunan-network
     environment:
       - DB_HOST=18.141.187.17
       - DB_NAME=sarrahman-bangunan
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.141.187.17
 
   mitra-service:
-    image: sarrahmanme/mitra-service:0.0.5
+    image: sarrahmanme/mitra-service:0.0.6
     container_name: mitra-service
     depends_on:
       - rabbitmq
@@ -70,18 +72,20 @@ services:
     environment:
       - DB_HOST=18.141.187.17
       - DB_NAME=sarrahman-bangunan
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.141.187.17
 
   finance-service:
-    image: sarrahmanme/finance-service:0.0.5
+    image: sarrahmanme/finance-service:0.0.6
     container_name: finance-service
     networks:
       - sarrahman-bangunan-network
     environment:
       - DB_HOST=18.141.187.17
       - DB_NAME=sarrahman-bangunan
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.141.187.17
 
   membership-service:
-    image: sarrahmanme/membership-service:0.0.5
+    image: sarrahmanme/membership-service:0.0.6
     container_name: membership-service
     depends_on:
       - rabbitmq
@@ -92,9 +96,10 @@ services:
       - DB_NAME=sarrahman-bangunan
       - MITRA_API_SERVICE=http://mitra-service:5006
       - FINANCE_API_SERVICE=http://finance-service:5007
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.141.187.17
 
   webstore-service:
-    image: sarrahmanme/webstore-service:0.0.7
+    image: sarrahmanme/webstore-service:0.0.8
     container_name: webstore-service
     depends_on:
       - configuration-service
@@ -105,9 +110,10 @@ services:
       - DB_NAME=sarrahman-bangunan
       - MITRA_API_SERVICE=http://mitra-service:5006
       - REDIS_HOST=18.141.187.17
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.141.187.17
       
   auth-service:
-    image: sarrahmanme/auth-service:0.0.11
+    image: sarrahmanme/auth-service:0.0.12
     container_name: auth-service
     networks:
       - sarrahman-bangunan-network
@@ -116,6 +122,7 @@ services:
     environment:
       - USER_MANAGEMENT_SERVICE=http://users-management-service:5002
       - MITRA_SERVICE=http://mitra-service:5006
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.141.187.17
 
   ai-service:
     image: sarrahmanme/ai-service:0.0.5
@@ -124,23 +131,14 @@ services:
       - sarrahman-bangunan-network
 
   message-service:
-    image: sarrahmanme/message-service:0.0.1
+    image: sarrahmanme/message-service:0.0.2
     container_name: message-service
     depends_on:
       - rabbitmq
     networks:
       - sarrahman-bangunan-network
-
-  rabbitmq:
-    image: rabbitmq
-    ports:
-      - "5672:5672"
-    container_name: rabbitmq
-    networks:
-      - sarrahman-bangunan-network
     environment:
-      - RABBITMQ_DEFAULT_USER=sarrahman
-      - RABBITMQ_DEFAULT_PASS=@124HM4n190919
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.141.187.17
 
 networks:
   sarrahman-bangunan-network:
