@@ -43,8 +43,6 @@ services:
   users-management-service:
     image: sarrahmanme/users-management-service:0.0.6
     container_name: users-management-service
-    depends_on:
-      - rabbitmq
     networks:
       - sarrahman-bangunan-network
     environment:
@@ -65,8 +63,6 @@ services:
   mitra-service:
     image: sarrahmanme/mitra-service:0.0.6
     container_name: mitra-service
-    depends_on:
-      - rabbitmq
     networks:
       - sarrahman-bangunan-network
     environment:
@@ -87,8 +83,6 @@ services:
   membership-service:
     image: sarrahmanme/membership-service:0.0.6
     container_name: membership-service
-    depends_on:
-      - rabbitmq
     networks:
       - sarrahman-bangunan-network
     environment:
@@ -117,8 +111,6 @@ services:
     container_name: auth-service
     networks:
       - sarrahman-bangunan-network
-    depends_on:
-      - rabbitmq
     environment:
       - USER_MANAGEMENT_SERVICE=http://users-management-service:5002
       - MITRA_SERVICE=http://mitra-service:5006
@@ -133,8 +125,6 @@ services:
   message-service:
     image: sarrahmanme/message-service:0.0.2
     container_name: message-service
-    depends_on:
-      - rabbitmq
     networks:
       - sarrahman-bangunan-network
     environment:
