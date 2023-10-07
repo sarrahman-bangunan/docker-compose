@@ -51,7 +51,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.141.187.17
 
   suplier-service:
-    image: sarrahmanme/suplier-service:0.1.0
+    image: sarrahmanme/suplier-service:0.1.1
     container_name: suplier-service
     networks:
       - sarrahman-bangunan-network
@@ -81,7 +81,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.141.187.17
 
   membership-service:
-    image: sarrahmanme/membership-service:0.1.0
+    image: sarrahmanme/membership-service:0.1.1
     container_name: membership-service
     networks:
       - sarrahman-bangunan-network
