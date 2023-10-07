@@ -20,7 +20,7 @@ services:
       - sarrahman-bangunan-network
 
   configuration-service:
-    image: sarrahmanme/configuration-service:0.0.1
+    image: sarrahmanme/configuration-service:0.1.0
     container_name: configuration-service
     networks:
       - sarrahman-bangunan-network
@@ -30,7 +30,7 @@ services:
       - REDIS_HOST=18.141.187.17
 
   products-service:
-    image: sarrahmanme/products-service:0.0.9
+    image: sarrahmanme/products-service:0.1.0
     container_name: products-service
     depends_on:
       - configuration-service
@@ -41,7 +41,7 @@ services:
       - REDIS_HOST=18.141.187.17
 
   users-management-service:
-    image: sarrahmanme/users-management-service:0.0.6
+    image: sarrahmanme/users-management-service:0.1.0
     container_name: users-management-service
     networks:
       - sarrahman-bangunan-network
@@ -51,7 +51,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.141.187.17
 
   suplier-service:
-    image: sarrahmanme/suplier-service:0.0.6
+    image: sarrahmanme/suplier-service:0.1.0
     container_name: suplier-service
     networks:
       - sarrahman-bangunan-network
@@ -61,7 +61,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.141.187.17
 
   mitra-service:
-    image: sarrahmanme/mitra-service:0.0.6
+    image: sarrahmanme/mitra-service:0.1.0
     container_name: mitra-service
     networks:
       - sarrahman-bangunan-network
@@ -71,7 +71,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.141.187.17
 
   finance-service:
-    image: sarrahmanme/finance-service:0.0.7
+    image: sarrahmanme/finance-service:0.1.0
     container_name: finance-service
     networks:
       - sarrahman-bangunan-network
@@ -81,7 +81,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.141.187.17
 
   membership-service:
-    image: sarrahmanme/membership-service:0.0.6
+    image: sarrahmanme/membership-service:0.1.0
     container_name: membership-service
     networks:
       - sarrahman-bangunan-network
@@ -93,7 +93,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.141.187.17
 
   webstore-service:
-    image: sarrahmanme/webstore-service:0.0.9
+    image: sarrahmanme/webstore-service:0.1.0
     container_name: webstore-service
     depends_on:
       - configuration-service
@@ -107,7 +107,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.141.187.17
       
   auth-service:
-    image: sarrahmanme/auth-service:0.0.12
+    image: sarrahmanme/auth-service:0.1.0
     container_name: auth-service
     networks:
       - sarrahman-bangunan-network
