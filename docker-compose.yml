@@ -71,7 +71,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.141.187.17
 
   finance-service:
-    image: sarrahmanme/finance-service:0.1.0
+    image: sarrahmanme/finance-service:0.1.1
     container_name: finance-service
     networks:
       - sarrahman-bangunan-network
