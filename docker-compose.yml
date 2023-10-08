@@ -81,12 +81,13 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.141.187.17
 
   membership-service:
-    image: sarrahmanme/membership-service:0.1.2
+    image: sarrahmanme/membership-service:0.1.3
     container_name: membership-service
     networks:
       - sarrahman-bangunan-network
     environment:
       - DB_HOST=18.141.187.17
+      - REDIS_HOST=18.141.187.17
       - DB_NAME=sarrahman-bangunan
       - MITRA_API_SERVICE=http://mitra-service:5006
       - FINANCE_API_SERVICE=http://finance-service:5007
