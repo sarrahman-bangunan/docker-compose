@@ -124,7 +124,7 @@ services:
       - sarrahman-bangunan-network
 
   message-service:
-    image: sarrahmanme/message-service:0.0.2
+    image: sarrahmanme/message-service:0.0.3
     container_name: message-service
     networks:
       - sarrahman-bangunan-network
