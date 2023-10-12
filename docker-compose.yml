@@ -61,7 +61,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.136.210.223
 
   mitra-service:
-    image: sarrahmanme/mitra-service:0.2.1
+    image: sarrahmanme/mitra-service:0.2.2
     container_name: mitra-service
     networks:
       - sarrahman-bangunan-network
@@ -108,7 +108,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.136.210.223
 
   auth-service:
-    image: sarrahmanme/auth-service:0.2.1
+    image: sarrahmanme/auth-service:0.2.2
     container_name: auth-service
     networks:
       - sarrahman-bangunan-network
