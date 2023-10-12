@@ -25,9 +25,9 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=18.136.210.223
+      - DB_HOST=13.213.30.75
       - DB_NAME=sarrahman-bangunan
-      - REDIS_HOST=18.136.210.223
+      - REDIS_HOST=13.213.30.75
 
   products-service:
     image: sarrahmanme/products-service:0.2.1
@@ -38,7 +38,7 @@ services:
       - sarrahman-bangunan-network
     environment:
       - MONGO_URI=mongodb+srv://sarrahmanme:124HM4n190919@cluster0.jujuafr.mongodb.net/?retryWrites=true&w=majority
-      - REDIS_HOST=18.136.210.223
+      - REDIS_HOST=13.213.30.75
 
   users-management-service:
     image: sarrahmanme/users-management-service:0.2.1
@@ -46,9 +46,9 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=18.136.210.223
+      - DB_HOST=13.213.30.75
       - DB_NAME=sarrahman-bangunan
-      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.136.210.223
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
   suplier-service:
     image: sarrahmanme/suplier-service:0.2.1
@@ -56,9 +56,9 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=18.136.210.223
+      - DB_HOST=13.213.30.75
       - DB_NAME=sarrahman-bangunan
-      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.136.210.223
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
   mitra-service:
     image: sarrahmanme/mitra-service:0.2.2
@@ -66,9 +66,9 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=18.136.210.223
+      - DB_HOST=13.213.30.75
       - DB_NAME=sarrahman-bangunan
-      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.136.210.223
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
   finance-service:
     image: sarrahmanme/finance-service:0.2.1
@@ -76,9 +76,9 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=18.136.210.223
+      - DB_HOST=13.213.30.75
       - DB_NAME=sarrahman-bangunan
-      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.136.210.223
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
   membership-service:
     image: sarrahmanme/membership-service:0.2.1
@@ -86,12 +86,12 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=18.136.210.223
-      - REDIS_HOST=18.136.210.223
+      - DB_HOST=13.213.30.75
+      - REDIS_HOST=13.213.30.75
       - DB_NAME=sarrahman-bangunan
       - MITRA_API_SERVICE=http://mitra-service:5006
       - FINANCE_API_SERVICE=http://finance-service:5007
-      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.136.210.223
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
   webstore-service:
     image: sarrahmanme/webstore-service:0.2.1
@@ -101,11 +101,11 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - DB_HOST=18.136.210.223
+      - DB_HOST=13.213.30.75
       - DB_NAME=sarrahman-bangunan
       - MITRA_API_SERVICE=http://mitra-service:5006
-      - REDIS_HOST=18.136.210.223
-      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.136.210.223
+      - REDIS_HOST=13.213.30.75
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
   auth-service:
     image: sarrahmanme/auth-service:0.2.2
@@ -113,9 +113,10 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
+      - REDIS_HOST=13.213.30.75
       - USER_MANAGEMENT_SERVICE=http://users-management-service:5002
       - MITRA_SERVICE=http://mitra-service:5006
-      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.136.210.223
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
   ai-service:
     image: sarrahmanme/ai-service:0.0.5
@@ -129,7 +130,7 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@18.136.210.223
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
 networks:
   sarrahman-bangunan-network:
