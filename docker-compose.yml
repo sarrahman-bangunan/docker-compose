@@ -108,7 +108,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
   auth-service:
-    image: sarrahmanme/auth-service:0.2.2
+    image: sarrahmanme/auth-service:0.2.3
     container_name: auth-service
     networks:
       - sarrahman-bangunan-network
