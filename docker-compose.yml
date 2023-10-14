@@ -119,7 +119,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
   ai-service:
-    image: sarrahmanme/ai-service:0.0.5
+    image: sarrahmanme/ai-service:0.0.7
     container_name: ai-service
     networks:
       - sarrahman-bangunan-network
