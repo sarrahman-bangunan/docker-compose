@@ -1,7 +1,7 @@
 version: "3"
 services:
   api-gateway:
-    image: sarrahmanme/api-gateway:arm64-0.0.8
+    image: sarrahmanme/api-gateway:arm64-0.0.9
     ports:
       - "80:80"
     container_name: api-gateway
@@ -121,6 +121,12 @@ services:
   ai-service:
     image: sarrahmanme/ai-service:arm64-0.0.7
     container_name: ai-service
+    networks:
+      - sarrahman-bangunan-network
+
+  maps-service:
+    image: sarrahmanme/maps-service:arm64-0.0.1
+    container_name: maps-service
     networks:
       - sarrahman-bangunan-network
 
