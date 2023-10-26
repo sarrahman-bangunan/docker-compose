@@ -37,7 +37,7 @@ services:
     networks:
       - sarrahman-bangunan-network
     environment:
-      - MONGO_URI=mongodb+srv://sarrahmanme:124HM4n190919@cluster0.jujuafr.mongodb.net/?retryWrites=true&w=majority
+      - MONGO_URI=mongodb+srv://sarrahmanme:%40124HM4n190919@database.eevmgfm.mongodb.net/?retryWrites=true&w=majority
       - REDIS_HOST=13.213.30.75
 
   users-management-service:
