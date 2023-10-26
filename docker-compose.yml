@@ -30,7 +30,7 @@ services:
       - REDIS_HOST=13.213.30.75
 
   products-service:
-    image: sarrahmanme/products-service:arm64-0.2.1
+    image: sarrahmanme/products-service:arm64-0.2.3
     container_name: products-service
     depends_on:
       - configuration-service
