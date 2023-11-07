@@ -125,7 +125,7 @@ services:
       - sarrahman-bangunan-network
 
   maps-service:
-    image: sarrahmanme/maps-service:arm64-0.0.1
+    image: sarrahmanme/maps-service:0.1.0
     container_name: maps-service
     networks:
       - sarrahman-bangunan-network
