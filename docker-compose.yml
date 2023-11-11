@@ -30,7 +30,7 @@ services:
       - REDIS_HOST=13.213.30.75
 
   products-service:
-    image: sarrahmanme/products-service:arm64-0.2.3
+    image: sarrahmanme/products-service:0.2.4
     container_name: products-service
     depends_on:
       - configuration-service
@@ -39,6 +39,7 @@ services:
     environment:
       - MONGO_URI=mongodb+srv://sarrahmanme:%40124HM4n190919@database.eevmgfm.mongodb.net/?retryWrites=true&w=majority
       - REDIS_HOST=13.213.30.75
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
   users-management-service:
     image: sarrahmanme/users-management-service:arm64-0.2.1
@@ -125,8 +126,14 @@ services:
       - sarrahman-bangunan-network
 
   maps-service:
-    image: sarrahmanme/maps-service:0.1.1
+    image: sarrahmanme/maps-service:0.1.2
     container_name: maps-service
+    networks:
+      - sarrahman-bangunan-network
+
+  analysis-service:
+    image: sarrahmanme/analysis-service:0.0.1
+    container_name: analysis-service
     networks:
       - sarrahman-bangunan-network
 
