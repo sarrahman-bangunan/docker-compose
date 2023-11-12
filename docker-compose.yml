@@ -1,7 +1,7 @@
 version: "3"
 services:
   api-gateway:
-    image: sarrahmanme/api-gateway:arm64-0.0.9
+    image: sarrahmanme/api-gateway:0.0.10
     ports:
       - "80:80"
     container_name: api-gateway
