@@ -30,7 +30,7 @@ services:
       - REDIS_HOST=13.213.30.75
 
   products-service:
-    image: sarrahmanme/products-service:0.2.4
+    image: sarrahmanme/products-service:0.2.5
     container_name: products-service
     depends_on:
       - configuration-service
@@ -132,7 +132,7 @@ services:
       - sarrahman-bangunan-network
 
   analysis-service:
-    image: sarrahmanme/analysis-service:0.0.1
+    image: sarrahmanme/analysis-service:0.0.2
     container_name: analysis-service
     networks:
       - sarrahman-bangunan-network
