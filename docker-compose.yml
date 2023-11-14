@@ -132,7 +132,7 @@ services:
       - sarrahman-bangunan-network
 
   analysis-service:
-    image: sarrahmanme/analysis-service:0.0.2
+    image: sarrahmanme/analysis-service:0.0.3
     container_name: analysis-service
     networks:
       - sarrahman-bangunan-network
