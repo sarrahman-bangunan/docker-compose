@@ -95,7 +95,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
   webstore-service:
-    image: sarrahmanme/webstore-service:arm64-0.2.1
+    image: sarrahmanme/webstore-service:0.2.2
     container_name: webstore-service
     depends_on:
       - configuration-service
