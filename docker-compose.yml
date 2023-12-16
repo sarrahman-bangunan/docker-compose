@@ -62,7 +62,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
   mitra-service:
-    image: sarrahmanme/mitra-service:arm64-0.2.2
+    image: sarrahmanme/mitra-service:0.2.3
     container_name: mitra-service
     networks:
       - sarrahman-bangunan-network
@@ -70,6 +70,7 @@ services:
       - DB_HOST=13.213.30.75
       - DB_NAME=sarrahman-bangunan
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
+      - REDIS_HOST=13.213.30.75
 
   finance-service:
     image: sarrahmanme/finance-service:arm64-0.2.1
