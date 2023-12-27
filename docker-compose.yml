@@ -52,7 +52,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
   suplier-service:
-    image: sarrahmanme/suplier-service:arm-0.2.1
+    image: sarrahmanme/suplier-service:0.2.2
     container_name: suplier-service
     networks:
       - sarrahman-bangunan-network
