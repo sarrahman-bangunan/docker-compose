@@ -146,6 +146,17 @@ services:
     environment:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
+  analytic-service:
+    image: sarrahmanme/analytic-service:0.0.1
+    container_name: analytic-service
+    networks:
+      - sarrahman-bangunan-network
+    environment:
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
+      - PRODUCT_SERVICE=http://products-service:5001
+      - SUPLIER_SERVICE=http://suplier-service:5003
+      - WEBSTORE_SERVICE=http://webstore-service:5008
+
 networks:
   sarrahman-bangunan-network:
     driver: bridge
