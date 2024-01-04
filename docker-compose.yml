@@ -153,7 +153,7 @@ services:
       - sarrahman-bangunan-network
 
   analytic-service:
-    image: sarrahmanme/analytic-service:0.0.9
+    image: sarrahmanme/analytic-service:0.0.10
     container_name: analytic-service
     networks:
       - sarrahman-bangunan-network
