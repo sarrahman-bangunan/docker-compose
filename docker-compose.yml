@@ -147,7 +147,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
   tilebot-service:
-    image: sarrahmanme/tilebot-service:0.0.3
+    image: sarrahmanme/tilebot-service:0.0.4
     container_name: tilebot-service
     networks:
       - sarrahman-bangunan-network
