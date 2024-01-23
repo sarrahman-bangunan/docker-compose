@@ -139,7 +139,7 @@ services:
       - sarrahman-bangunan-network
 
   message-service:
-    image: sarrahmanme/message-service:arm64-0.0.4
+    image: sarrahmanme/message-service:0.0.5
     container_name: message-service
     networks:
       - sarrahman-bangunan-network
