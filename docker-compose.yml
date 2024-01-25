@@ -73,7 +73,7 @@ services:
       - REDIS_HOST=13.213.30.75
 
   finance-service:
-    image: sarrahmanme/finance-service:arm64-0.2.1
+    image: sarrahmanme/finance-service:0.2.2
     container_name: finance-service
     networks:
       - sarrahman-bangunan-network
@@ -83,7 +83,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
   membership-service:
-    image: sarrahmanme/membership-service:0.2.3
+    image: sarrahmanme/membership-service:0.2.4
     container_name: membership-service
     networks:
       - sarrahman-bangunan-network
