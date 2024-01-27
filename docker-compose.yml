@@ -73,7 +73,7 @@ services:
       - REDIS_HOST=13.213.30.75
 
   finance-service:
-    image: sarrahmanme/finance-service:0.2.5
+    image: sarrahmanme/finance-service:0.2.7
     container_name: finance-service
     networks:
       - sarrahman-bangunan-network
