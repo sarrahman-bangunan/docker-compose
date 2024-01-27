@@ -83,7 +83,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
   membership-service:
-    image: sarrahmanme/membership-service:0.2.4
+    image: sarrahmanme/membership-service:0.2.5
     container_name: membership-service
     networks:
       - sarrahman-bangunan-network
