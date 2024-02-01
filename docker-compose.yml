@@ -149,6 +149,8 @@ services:
   tilebot-service:
     image: sarrahmanme/tilebot-service:0.1.0
     container_name: tilebot-service
+    environment:
+      - PRODUCT_SERVICE=http://products-service:5001
     networks:
       - sarrahman-bangunan-network
 
