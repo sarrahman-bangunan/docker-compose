@@ -30,7 +30,7 @@ services:
       - REDIS_HOST=13.213.30.75
 
   products-service:
-    image: sarrahmanme/products-service:0.3.14
+    image: sarrahmanme/products-service:0.3.15
     container_name: products-service
     depends_on:
       - configuration-service
@@ -147,7 +147,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
   tilebot-service:
-    image: sarrahmanme/tilebot-service:0.0.4
+    image: sarrahmanme/tilebot-service:0.1.0
     container_name: tilebot-service
     networks:
       - sarrahman-bangunan-network
