@@ -155,6 +155,12 @@ services:
     networks:
       - sarrahman-bangunan-network
 
+  monitoring-service:
+    image: sarrahmanme/monitoring-service:0.0.1
+    container_name: monitoring-service
+    networks:
+      - sarrahman-bangunan-network
+
   analytic-service:
     image: sarrahmanme/analytic-service:0.2.6
     container_name: analytic-service
