@@ -156,7 +156,7 @@ services:
       - sarrahman-bangunan-network
 
   monitoring-service:
-    image: sarrahmanme/monitoring-service:0.0.1
+    image: sarrahmanme/monitoring-service:0.0.2
     container_name: monitoring-service
     networks:
       - sarrahman-bangunan-network
