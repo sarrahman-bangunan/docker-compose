@@ -1,7 +1,7 @@
 version: "3"
 services:
   api-gateway:
-    image: sarrahmanme/api-gateway:0.0.15
+    image: sarrahmanme/api-gateway:0.0.16
     ports:
       - "80:80"
     container_name: api-gateway
@@ -30,7 +30,7 @@ services:
       - REDIS_HOST=13.213.30.75
 
   products-service:
-    image: sarrahmanme/products-service:0.3.17
+    image: sarrahmanme/products-service:0.3.18
     container_name: products-service
     depends_on:
       - configuration-service
@@ -149,9 +149,12 @@ services:
     networks:
       - sarrahman-bangunan-network
 
-  monitoring-service:
-    image: sarrahmanme/monitoring-service:0.0.2
-    container_name: monitoring-service
+  monitor-service:
+    image: sarrahmanme/monitor-service:0.0.1
+    container_name: monitor-service
+    environment:
+      - MONGO_URI=mongodb+srv://sarrahmanme:%40124HM4n190919@cluster0.ypy1kla.mongodb.net/?retryWrites=true&w=majority
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
     networks:
       - sarrahman-bangunan-network
 
