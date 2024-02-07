@@ -30,7 +30,7 @@ services:
       - REDIS_HOST=13.213.30.75
 
   products-service:
-    image: sarrahmanme/products-service:0.3.18
+    image: sarrahmanme/products-service:0.3.19
     container_name: products-service
     depends_on:
       - configuration-service
@@ -73,7 +73,7 @@ services:
       - REDIS_HOST=13.213.30.75
 
   finance-service:
-    image: sarrahmanme/finance-service:0.2.7
+    image: sarrahmanme/finance-service:0.2.9
     container_name: finance-service
     networks:
       - sarrahman-bangunan-network
@@ -83,7 +83,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
   membership-service:
-    image: sarrahmanme/membership-service:0.2.6
+    image: sarrahmanme/membership-service:0.2.7
     container_name: membership-service
     networks:
       - sarrahman-bangunan-network
@@ -110,7 +110,7 @@ services:
       - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
 
   auth-service:
-    image: sarrahmanme/auth-service:arm64-0.2.3
+    image: sarrahmanme/auth-service:0.2.4
     container_name: auth-service
     networks:
       - sarrahman-bangunan-network
@@ -150,7 +150,7 @@ services:
       - sarrahman-bangunan-network
 
   monitor-service:
-    image: sarrahmanme/monitor-service:0.0.2
+    image: sarrahmanme/monitor-service:0.0.3
     container_name: monitor-service
     environment:
       - MONGO_URI=mongodb+srv://sarrahmanme:%40124HM4n190919@cluster0.ypy1kla.mongodb.net/?retryWrites=true&w=majority
