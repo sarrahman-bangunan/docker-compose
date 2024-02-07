@@ -150,7 +150,7 @@ services:
       - sarrahman-bangunan-network
 
   monitor-service:
-    image: sarrahmanme/monitor-service:0.0.3
+    image: sarrahmanme/monitor-service:0.0.4
     container_name: monitor-service
     environment:
       - MONGO_URI=mongodb+srv://sarrahmanme:%40124HM4n190919@cluster0.ypy1kla.mongodb.net/?retryWrites=true&w=majority
