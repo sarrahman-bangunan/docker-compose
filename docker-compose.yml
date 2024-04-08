@@ -1,174 +1,92 @@
 version: "3"
 services:
   api-gateway:
-    image: sarrahmanme/api-gateway:0.0.16
+    image: sarrahmanme/api-gateway
     ports:
       - "80:80"
     container_name: api-gateway
     depends_on:
-      - products-service
-      - users-management-service
-      - suplier-service
-      - mitra-service
-      - finance-service
-      - membership-service
+      - users-service
+      - supliers-service
       - webstore-service
-      - auth-service
-      - message-service
-      - ai-service
+      - analysis-service
+      - products-command-service
+      - products-query-service
+      - partners-service
+      - messaging-service
     networks:
-      - sarrahman-bangunan-network
+      - tokokeramik-network
 
-  configuration-service:
-    image: sarrahmanme/configuration-service:arm64-0.2.1
-    container_name: configuration-service
+  users-service:
+    image: sarrahmanme/users-service
+    container_name: users-service
     networks:
-      - sarrahman-bangunan-network
+      - tokokeramik-network
     environment:
-      - DB_HOST=13.213.30.75
-      - DB_NAME=sarrahman-bangunan
-      - REDIS_HOST=13.213.30.75
+      - DB_HOST=10.0.2.40
 
-  products-service:
-    image: sarrahmanme/products-service:0.3.20
-    container_name: products-service
-    depends_on:
-      - configuration-service
+  supliers-service:
+    image: sarrahmanme/supliers-service
+    container_name: supliers-service
     networks:
-      - sarrahman-bangunan-network
+      - tokokeramik-network
     environment:
-      - MONGO_URI=mongodb+srv://sarrahmanme:%40124HM4n190919@database.eevmgfm.mongodb.net/?retryWrites=true&w=majority
-      - REDIS_HOST=13.213.30.75
-      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
-
-  users-management-service:
-    image: sarrahmanme/users-management-service:arm64-0.2.1
-    container_name: users-management-service
-    networks:
-      - sarrahman-bangunan-network
-    environment:
-      - DB_HOST=13.213.30.75
-      - DB_NAME=sarrahman-bangunan
-      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
-
-  suplier-service:
-    image: sarrahmanme/suplier-service:0.2.4
-    container_name: suplier-service
-    networks:
-      - sarrahman-bangunan-network
-    environment:
-      - DB_HOST=13.213.30.75
-      - DB_NAME=sarrahman-bangunan
-      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
-
-  mitra-service:
-    image: sarrahmanme/mitra-service:0.2.4
-    container_name: mitra-service
-    networks:
-      - sarrahman-bangunan-network
-    environment:
-      - DB_HOST=13.213.30.75
-      - DB_NAME=sarrahman-bangunan
-      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
-      - REDIS_HOST=13.213.30.75
-
-  finance-service:
-    image: sarrahmanme/finance-service:0.2.9
-    container_name: finance-service
-    networks:
-      - sarrahman-bangunan-network
-    environment:
-      - DB_HOST=13.213.30.75
-      - DB_NAME=sarrahman-bangunan
-      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
-
-  membership-service:
-    image: sarrahmanme/membership-service:0.2.7
-    container_name: membership-service
-    networks:
-      - sarrahman-bangunan-network
-    environment:
-      - DB_HOST=13.213.30.75
-      - REDIS_HOST=13.213.30.75
-      - DB_NAME=sarrahman-bangunan
-      - MITRA_API_SERVICE=http://mitra-service:5006
-      - FINANCE_API_SERVICE=http://finance-service:5007
-      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
+      - DB_HOST=10.0.2.40
 
   webstore-service:
-    image: sarrahmanme/webstore-service:0.3.5
+    image: sarrahmanme/webstore-service
     container_name: webstore-service
-    depends_on:
-      - configuration-service
     networks:
-      - sarrahman-bangunan-network
+      - tokokeramik-network
     environment:
-      - DB_HOST=13.213.30.75
-      - DB_NAME=sarrahman-bangunan
-      - MITRA_API_SERVICE=http://mitra-service:5006
-      - REDIS_HOST=13.213.30.75
-      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
+      - DB_HOST=10.0.2.40
+      - PARTNERS_SERVICE=http://partners-service:5001
 
-  auth-service:
-    image: sarrahmanme/auth-service:0.2.4
-    container_name: auth-service
+  analysis-service:
+    image: sarrahmanme/analysis-service
+    container_name: analysis-service
     networks:
-      - sarrahman-bangunan-network
+      - tokokeramik-network
     environment:
-      - REDIS_HOST=13.213.30.75
-      - USER_MANAGEMENT_SERVICE=http://users-management-service:5002
-      - MITRA_SERVICE=http://mitra-service:5006
-      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
+      - MONGO_HOST=10.0.2.40
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@10.0.2.40:5672
 
-  ai-service:
-    image: sarrahmanme/ai-service:0.2.4
-    container_name: ai-service
+  products-command-service:
+    image: sarrahmanme/products-command-service
+    container_name: products-command-service
     networks:
-      - sarrahman-bangunan-network
-
-  maps-service:
-    image: sarrahmanme/maps-service:0.1.2
-    container_name: maps-service
-    networks:
-      - sarrahman-bangunan-network
-
-  message-service:
-    image: sarrahmanme/message-service:0.0.6
-    container_name: message-service
-    networks:
-      - sarrahman-bangunan-network
+      - tokokeramik-network
     environment:
-      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
+      - DB_HOST=10.0.2.40
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@10.0.2.40:5672
 
-  tilebot-service:
-    image: sarrahmanme/tilebot-service:0.1.3
-    container_name: tilebot-service
-    environment:
-      - PRODUCT_SERVICE=http://products-service:5001
-      - SARRAHMAN_VERSION_BOT=20240202
+  products-query-service:
+    image: sarrahmanme/products-query-service
+    container_name: products-query-service
     networks:
-      - sarrahman-bangunan-network
+      - tokokeramik-network
+    environment:
+      - MONGO_HOST=10.0.2.40
+      - SUPLIERS_SERVICE=http://supliers-service:5003
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@10.0.2.40:5672
 
-  monitor-service:
-    image: sarrahmanme/monitor-service:0.0.5
-    container_name: monitor-service
-    environment:
-      - MONGO_URI=mongodb+srv://sarrahmanme:%40124HM4n190919@cluster0.ypy1kla.mongodb.net/?retryWrites=true&w=majority
-      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
+  partners-service:
+    image: sarrahmanme/partners-service
+    container_name: partners-service
     networks:
-      - sarrahman-bangunan-network
+      - tokokeramik-network
+    environment:
+      - DB_HOST=10.0.2.40
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@10.0.2.40:5672
 
-  analytic-service:
-    image: sarrahmanme/analytic-service:0.2.6
-    container_name: analytic-service
+  messaging-service:
+    image: sarrahmanme/messaging-service
+    container_name: messaging-service
     networks:
-      - sarrahman-bangunan-network
+      - tokokeramik-network
     environment:
-      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@13.213.30.75
-      - PRODUCT_SERVICE=http://products-service:5001
-      - SUPLIER_SERVICE=http://suplier-service:5003
-      - WEBSTORE_SERVICE=http://webstore-service:5008
+      - RABBITMQ_HOST=amqp://sarrahman:@124HM4n190919@10.0.2.40:5672
 
 networks:
-  sarrahman-bangunan-network:
+  tokokeramik-network:
     driver: bridge
